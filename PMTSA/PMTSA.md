@@ -73,3 +73,76 @@
 *   **Principle**: Data-driven method that breaks signal into Intrinsic Mode Functions (IMFs).
 *   **Advantage**: Adaptive; no predefined basis functions; handles non-linear data well.
 *   **Use-case**: Analyzing complex, **non-linear, non-stationary** real-world signals (e.g., biomedical data).
+
+## 5. Explain any two methods of handling missing values in a dataset.
+
+**Method 1: Deletion Method**
+*   **Process**: Removing rows or columns that contain missing values.
+*   **Suitability**: Best when the amount of missing data is very small.
+*   **Pros**: Simple and fast.
+*   **Cons**: Can cause loss of important information; may introduce bias if missingness is not random.
+
+**Method 2: Imputation Method**
+*   **Process**: Replacing missing values with estimated values.
+*   **Techniques**:
+    *   **Mean/Median/Mode**: For general data.
+    *   **Forward/Backward Fill**: Specifically for time series (preserves order).
+*   **Pros**: Preserves dataset size and structure.
+*   **Cons**: Can distort variance or weaken relationships if done blindly.
+
+## 6. Describe the assumptions of Linear Regression and explain why they matter.
+
+**Assumptions**
+1.  **Linearity**: The relationship between independent and dependent variables is linear. (Violation = inaccurate predictions).
+2.  **Independence of Errors**: Residuals are not correlated with each other. (Violation = misleading confidence intervals).
+3.  **Homoscedasticity**: The variance of residuals is constant across all predictor values. (Violation = unreliable standard errors).
+4.  **Normality of Errors**: Residuals follow a normal distribution. (Important for hypothesis testing).
+5.  **No Multicollinearity**: Independent variables are not highly correlated. (Violation = unstable coefficients).
+
+**Why They Matter**
+*   Ensures coefficient estimates are **unbiased and reliable**.
+*   Violations lead to reduced model accuracy and **make statistical inference (p-values) unreliable**.
+
+## 7. Explain Hybrid Forecasting Models (Classical + ML). Give an example of an additive and a multiplicative hybrid approach.
+
+**Hybrid Forecasting Models**
+*   **Concept**: Combines classical time series models (captured trend/seasonality) with machine learning models (captures nonlinear patterns/residual structure).
+*   **Goal**: Improve accuracy by leveraging strengths of both matrices.
+
+**Additive Hybrid Approach**
+*   **Formula**: Series = Trend + Seasonality + Residual
+*   **Method**:
+    *   Classical model (e.g., ARIMA) models Trend & Seasonality.
+    *   ML model (e.g., Random Forest) models Residuals.
+*   **Final Forecast**: ARIMA Forecast + ML Residual Forecast.
+
+**Multiplicative Hybrid Approach**
+*   **Formula**: Series = Trend × Seasonality × Residual
+*   **Use Case**: When seasonality scales with the level of the series.
+*   **Method**:
+    *   Classical model captures multiplicative structure.
+    *   ML model learns patterns in scaled residuals.
+*   **Final Forecast**: Classical Forecast × ML Correction Factor.
+
+## 8. Define Trend and Seasonality in time series with simple examples.
+
+**Trend**
+*   **Definition**: Long-term upward or downward movement in the data showing overall direction over time.
+*   **Example**: Monthly sales increasing every year due to business growth.
+
+**Seasonality**
+*   **Definition**: Repeating patterns at fixed intervals (daily, monthly, yearly) caused by calendar effects or human behavior.
+*   **Example**: Higher electricity usage every summer or increased retail sales during festivals.
+
+## 9. Explain the concept of Gradient Boosting. How does XGBoost improve traditional boosting?
+
+**Gradient Boosting**
+*   **Concept**: An ensemble technique that builds models sequentially.
+*   **Process**: Each new model tries to correct the errors (residuals) of the previous models using gradient descent to minimize a loss function.
+*   **Base Learner**: Typically uses shallow decision trees.
+
+**XGBoost Improvements**
+*   **Regularization**: Uses L1 and L2 regularization to reduce overfitting.
+*   **Speed**: Supports parallel processing for faster training.
+*   **Robustness**: Handles missing values automatically.
+*   **Efficiency**: Includes early stopping for better generalization and is scalable for large datasets.
