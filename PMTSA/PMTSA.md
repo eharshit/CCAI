@@ -38,3 +38,38 @@
     *   **For 10**: $\frac{10 - 10}{30 - 10} = 0$
     *   **For 20**: $\frac{20 - 10}{30 - 10} = 0.5$
     *   **For 30**: $\frac{30 - 10}{30 - 10} = 1$
+
+## 3. Compare Bagging and Boosting with examples of algorithms using them.
+
+**Bagging (Bootstrap Aggregating)**
+*   **Process**: Multiple models are trained independenty on random samples (with replacement) and aggregated via voting/averaging.
+*   **Goal**: Reduces **variance** and controls overfitting.
+*   **Characteristics**: Works well with high-variance models; less sensitive to noise.
+*   **Algorithms**: Random Forest, Bagged Decision Trees.
+
+**Boosting**
+*   **Process**: Models are trained sequentially; each new model corrects errors (misclassified points) of previous ones.
+*   **Goal**: Reduces **bias** and improves overall accuracy.
+*   **Characteristics**: More sensitive to noise/outliers; focuses on hard-to-predict points.
+*   **Algorithms**: AdaBoost, Gradient Boosting, XGBoost.
+
+**Comparison Summary**
+*   **Training**: Bagging = Parallel; Boosting = Sequential.
+*   **Main Objective**: Bagging = Reduce Variance; Boosting = Reduce Bias.
+
+## 4. Describe the working principles of Fourier Transform, Wavelet Transform, and EMD for time series decomposition. Compare their use‑cases.
+
+**1. Fourier Transform (FT)**
+*   **Principle**: Decomposes signal into a sum of sine and cosine waves.
+*   **Limitation**: Assumes stationarity (statistical properties don't change); loses time info.
+*   **Use-case**: Identifying dominant periodic patterns in **stationary signals** (e.g., constant seasonal cycles).
+
+**2. Wavelet Transform (WT)**
+*   **Principle**: Uses small "wavelets" to decompose signal at multiple scales.
+*   **Advantage**: Provides **both** time and frequency information.
+*   **Use-case**: Detecting sudden changes, trends, or spikes in **non-stationary signals** (e.g., financial shocks).
+
+**3. Empirical Mode Decomposition (EMD)**
+*   **Principle**: Data-driven method that breaks signal into Intrinsic Mode Functions (IMFs).
+*   **Advantage**: Adaptive; no predefined basis functions; handles non-linear data well.
+*   **Use-case**: Analyzing complex, **non-linear, non-stationary** real-world signals (e.g., biomedical data).
